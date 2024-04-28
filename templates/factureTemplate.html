@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+      }
+      .invoice-header {
+        background-color: #eee;
+        padding: 10px;
+        /* text-align: center; */
+      }
+      .invoice-body {
+        margin-top: 40px;
+        padding: 15px;
+      }
+      .invoice-footer {
+        background-color: #eee;
+        padding: 10px;
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .total {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: right;
+        padding-right: 15px;
+      }
+      .invoice-info {
+        position: absolute;
+        top: 75px;
+        right: 40px;
+        padding: 15px;
+        font-size: 12px;
+      }
+      .invoice-info .info-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .invoice-info p {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .logo img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 150px; /* Adjust as needed */
+        height: auto;
+      }
+      .conter-image img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        width: auto;
+        height: 300px; /* Adjust as needed */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="http://127.0.0.1/tp2/public/images/logo-amandic.png">
+    </div>
+    <div class="invoice-header">
+      <h2>Invoice Number IV202303{{bill_id}}</h2>
+      <h3>First name: {{first_name}}</h3>
+      <h3>Last name: {{last_name}}</h3>
+      <h3>Email: {{email}}</h3>
+      <h3>Phone number: {{phone}}</h3>
+    </div>
+
+    <div class="invoice-info">
+      <div class="info-title">Supplier Info</div>
+      <p>
+        Amendis Supplier<br>
+        Supplier Address<br>
+        Tetouan, 92866<br>
+        (800) 555-1234
+      </p>
+    </div>
+
+    <div class="invoice-body">
+      <table>
+        <tr>
+          <th>Status</th>
+          <td>{{status}}</td>
+          <th>Usage</th>
+          <td>
+            Electricity</td>
+        </tr>
+        <tr>
+          <th>Period Start</th>
+          <td>{{issue_date}}</td>
+          <th>Period End</th>
+          <td>{{due_date}}</td>
+        </tr>
+        <tr>
+          <th>Consumption (Kwh)</th>
+          <td>{{monthly_consumption}}</td>
+          <th>Amount in DH (HT)</th>
+          <td>{{amount_ht}}</td>
+        </tr>
+      </table>
+      <div class="total">
+        Total Amount Due: {{amount_ttc}} DH
+      </div>
+    </div>
+    <div class="invoice-footer">
+      In taking a shower instead of a bath, you save 120 liters.
+    </div>
+
+    <div class="conter-image">
+      <img src="http://127.0.0.1/tp2/public/images/{{image}}"
+        alt="Meter Reading">
+    </div>
+  </body>
+</html>
